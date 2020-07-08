@@ -84,6 +84,8 @@ redis_config:
 {% else %}
     - source: {{ redis_settings.source_path }}
 {% endif %}
+    - require_in:
+      - file: redis_service
 
 {% if install_from == 'source' %}
 redis-initd:
